@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noble Trading Co</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gideon+Roman&display=swap');
+        
+        body {
+            font-family: 'Gideon Roman', serif;
+            background: white;
+            color: black;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 30px;
+            background: transparent; /* Nav bar completely transparent */
+            z-index: 1000; /* Ensure nav bar stays on top */
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+        }
+        .logo-container img {
+            height: 60px; /* Adjust height */
+            width: 60px; /* Adjust width to make the image bigger */
+            border-radius: 50%; /* Make the image circular */
+        }
+        .logo-text {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: black;
+            margin-left: 10px;
+            opacity: 0;
+            transform: translateX(0);
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            position: absolute;
+            left: 60px;
+            white-space: nowrap;
+        }
+        .logo-container:hover .logo-text {
+            opacity: 1;
+            transform: translateX(50px);
+        }
+        nav a {
+            color: black;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        section {
+            padding: 100px 40px 40px;
+            text-align: center;
+        }
+        #about {
+            padding: 30px 40px;
+        }
+        #about h2 {
+            font-size: 3em;
+            font-weight: bold;
+        }
+        #about p {
+            font-size: 1.5em;
+            line-height: 1.5;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .banner {
+            width: 100%;
+            height: 600px; /* Increased height for the header image */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://i.ibb.co/dwHHPLy5/person-taking-care-office-cleaning.jpg'); /* Added light grey tint */
+            background-size: cover;
+            background-position: center;
+            color: white; /* Text color changed to white */
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* Align text to the left */
+            padding-left: 40px; /* Add padding to align text proportionately */
+            font-size: 4em; /* Increased font size */
+            font-weight: bold;
+            line-height: 1.2; /* Adjust line height for multi-line text */
+        }
+        .why-choose {
+            background: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        .why-choose h2 {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .features {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .feature {
+            background: white;
+            padding: 20px;
+            border: 2px solid black;
+            border-radius: 10px;
+            text-align: center;
+            width: 250px;
+        }
+        .feature i {
+            font-size: 2em;
+            color: black;
+            margin-bottom: 10px;
+        }
+        .bestsellers {
+            background: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        .bestsellers h2 {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
+        .bestseller-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+            gap: 20px;
+        }
+        .bestseller-item img {
+            width: 320px; /* Increased image size slightly */
+            height: auto;
+            border-radius: 10px;
+        }
+        .bestseller-text {
+            max-width: 400px;
+            text-align: left;
+            font-size: 1.3em;
+        }
+        .bestseller-text h3 {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* Footer Section */
+        .footer-banner {
+            width: 100%;
+            padding: 20px 40px; /* Reduced padding to move content upwards */
+            text-align: left; /* Align text and button to the left */
+            background: black; /* Black background */
+            display: flex;
+            justify-content: space-between; /* Space between left and right content */
+            align-items: center; /* Center align items vertically */
+        }
+
+        .footer-left {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Align text and button to the left */
+        }
+
+        .footer-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Align icons and text to the left */
+            gap: 15px; /* Space between icons and text */
+            margin-left: auto; /* Push the icons to the center */
+            margin-right: auto; /* Push the icons to the center */
+        }
+
+        .banner-message p {
+            font-size: 2.5em; /* Restored original text size */
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: white; /* Changed text color to white */
+        }
+
+        .contact-button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            background-color: white; /* Changed background to white */
+            color: black; /* Changed text color to black */
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: 'Gideon Roman', serif;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-button:hover {
+            background-color: #f0f0f0; /* Light grey on hover */
+        }
+
+        .footer-right i {
+            font-size: 2em; /* Increased icon size */
+            color: white; /* Icon color */
+        }
+
+        .footer-right span {
+            font-size: 1.5em; /* Increased text size */
+            color: white; /* Text color */
+            margin-left: 10px; /* Space between icon and text */
+        }
+
+        .footer-right div {
+            display: flex;
+            align-items: center; /* Center icons and text horizontally */
+        }
+
+        /* Contact Form Styles */
+        #contact-form {
+            display: none;
+            padding: 40px;
+            background-color: #f4f4f4;
+            max-width: 600px;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+        #contact-form h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        #contact-form label {
+            font-size: 1.2em;
+            display: block;
+            margin-bottom: 10px;
+        }
+        #contact-form input,
+        #contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            font-size: 1em;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        #contact-form button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        #contact-form button:hover {
+            background-color: #333;
+        }
+
+        /* Catalogue Link */
+        .catalogue-link {
+            font-size: 2em;
+            font-weight: bold;
+            color: black;
+            margin-top: 20px;
+        }
+        .catalogue-link a {
+            color: black;
+            text-decoration: underline;
+        }
+        .catalogue-link a:hover {
+            color: #333;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="logo-container">
+            <img src="https://i.ibb.co/CsYRn54Z/logo.jpg" alt="Noble Trading Co Logo">
+            <span class="logo-text">Noble Trading Co</span>
+        </div>
+        <div>
+            <a href="#about">About</a>
+            <a href="#catalogue-section">Catalogue</a> <!-- Updated "Shop" to "Catalogue" -->
+            <a href="#footer">Contact</a>
+        </div>
+    </nav>
+    <div class="banner">
+        Effortless Clean,<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Every Time
+    </div>
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Founded in 2020, Noble Trading Co. was born out of a desire to tackle the struggles caused by unhygienic practices in industrial and home settings. We offer a wide range of high-quality cleaning cloths, from microfiber glass cloths to kitchen cloths designed for baking safety. Our mission is simple: provide customers with reliable, top-notch products while raising awareness about the importance of hygiene and safety. At Noble Trading Co., we’re dedicated to helping you maintain a cleaner, safer environment.</p>
+    </section>
+    <section class="why-choose">
+        <h2>Why Choose Noble Trading Co?</h2>
+        <div class="features">
+            <div class="feature">
+                <i class="fa-solid fa-wand-sparkles"></i>
+                <h3>Superior Cleaning</h3>
+                <p>Advanced microfiber technology captures more dirt and bacteria.</p>
+            </div>
+            <div class="feature">
+                <i class="fa-solid fa-leaf"></i>
+                <h3>Eco-Friendly</h3>
+                <p>Made from sustainable materials with minimal environmental impact.</p>
+            </div>
+            <div class="feature">
+                <i class="fa-solid fa-arrows-rotate"></i>
+                <h3>Reusable</h3>
+                <p>Durable design for hundreds of washes, reducing waste.</p>
+            </div>
+            <div class="feature">
+                <i class="fa-solid fa-shield"></i>
+                <h3>Safe & Non-Toxic</h3>
+                <p>Chemical-free cleaning for your family’s safety.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="bestsellers">
+        <h2>Our Bestsellers</h2>
+        <div class="bestseller-item">
+            <img src="https://i.ibb.co/b59bvc8j/large-cloth.jpg" alt="Large MicroFibre Cloth">
+            <div class="bestseller-text">
+                <h3>Large MicroFibre Cloth</h3>
+                <p>Experience streak-free shine with our large microfiber glass cloth. Designed for precision cleaning, it effortlessly removes dust, smudges, and fingerprints from glass and mirrors without leaving lint or streaks. Ideal for both home and professional use, this durable cloth ensures a spotless, gleaming finish every time.</p>
+            </div>
+        </div>
+        <div class="bestseller-item" style="flex-direction: row-reverse;">
+            <img src="https://i.ibb.co/S4zFR0Nv/oven-bakers-cloth.jpg" alt="Oven Bakers Cloth">
+            <div class="bestseller-text">
+                <h3>Oven Bakers Cloth</h3>
+                <p>Crafted for the baking enthusiast, our baker's oven cloth offers heat resistance and durability for safe handling of hot bakeware. Made from thick, absorbent material, it protects hands and surfaces while adding a touch of style to your kitchen. Perfect for removing hot pans from the oven or handling trays with ease.</p>
+            </div>
+        </div>
+        <div class="bestseller-item">
+            <img src="https://i.ibb.co/JwWk0zPk/ai-multi-cleaner-2.png" alt="Multi Purpose Cleaner">
+            <div class="bestseller-text">
+                <h3>Multi Purpose Cleaner</h3>
+                <p>Tackle tough messes with the Super Professional H3 Multi Cleaner Spray. Designed for high-performance cleaning, this versatile spray cuts through grease, grime, and stains on multiple surfaces, from kitchen counters to industrial equipment. Its powerful formula delivers professional-grade results, leaving your spaces spotless and fresh with minimal effort.</p>
+            </div>
+        </div>
+
+        <!-- Catalogue Link -->
+        <div id="catalogue-section" class="catalogue-link"> <!-- Added id="catalogue-section" -->
+            <strong>Interested? Check out our <a href="NTC53CleaningProducts 1.pdf" target="_blank">catalogue</a>.</strong>
+        </div>
+    </section>
+
+    <!-- Updated Contact Form Section with Formspree -->
+    <section id="contact-form">
+        <h2>Contact Us</h2>
+        <form action="https://formspree.io/f/meoerqon" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <br>
+            <label for="email">Your email:</label>
+            <input type="email" id="email" name="email" required>
+            <br>
+            <label for="message">Your message:</label>
+            <textarea id="message" name="message" required></textarea>
+            <br>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <section id="footer" class="footer-banner">
+        <div class="footer-left">
+            <p style="color: white; font-family: 'Gideon Roman', serif; font-size: 2em; font-weight: bold;">For any trade inquiries,<br>Feel free to</p> <!-- Added bold font and line break -->
+            <button class="contact-button" onclick="showContactForm()" style="margin-top: -10px; margin-left: 20px;">Contact Us</button> <!-- Adjusted margin-top and margin-left -->
+        </div>
+        <div class="footer-right">
+            <div>
+                <i class="fab fa-instagram"></i>
+                <span>nobletradingco</span>
+            </div>
+            <div>
+                <i class="fab fa-facebook"></i>
+                <span>nobletradingco</span>
+            </div>
+            <div>
+                <i class="fas fa-phone"></i>
+                <span>+44 7586 470569</span>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function showContactForm() {
+            var contactForm = document.getElementById("contact-form");
+            contactForm.style.display = (contactForm.style.display === "none" || contactForm.style.display === "") ? "block" : "none";
+        }
+    </script>
+</body>
+</html>
