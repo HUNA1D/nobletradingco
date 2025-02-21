@@ -22,8 +22,8 @@
             justify-content: space-between;
             align-items: center;
             padding: 5px 30px;
-            background: transparent;
-            z-index: 1000;
+            background: transparent; /* Nav bar completely transparent */
+            z-index: 1000; /* Ensure nav bar stays on top */
         }
         .logo-container {
             display: flex;
@@ -32,9 +32,9 @@
             position: relative;
         }
         .logo-container img {
-            height: 60px;
-            width: 60px;
-            border-radius: 50%;
+            height: 60px; /* Adjust height */
+            width: 60px; /* Adjust width to make the image bigger */
+            border-radius: 50%; /* Make the image circular */
         }
         .logo-text {
             font-size: 1.5em;
@@ -79,18 +79,18 @@
         }
         .banner {
             width: 100%;
-            height: 600px;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://i.ibb.co/dwHHPLy5/person-taking-care-office-cleaning.jpg');
+            height: 600px; /* Increased height for the header image */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://i.ibb.co/dwHHPLy5/person-taking-care-office-cleaning.jpg'); /* Added light grey tint */
             background-size: cover;
             background-position: center;
-            color: white;
+            color: white; /* Text color changed to white */
             display: flex;
             align-items: center;
-            justify-content: flex-start;
-            padding-left: 40px;
-            font-size: 4em;
+            justify-content: flex-start; /* Align text to the left */
+            padding-left: 40px; /* Add padding to align text proportionately */
+            font-size: 4em; /* Increased font size */
             font-weight: bold;
-            line-height: 1.2;
+            line-height: 1.2; /* Adjust line height for multi-line text */
         }
         .why-choose {
             background: white;
@@ -139,7 +139,7 @@
             gap: 20px;
         }
         .bestseller-item img {
-            width: 320px;
+            width: 320px; /* Increased image size slightly */
             height: auto;
             border-radius: 10px;
         }
@@ -157,42 +157,42 @@
         /* Footer Section */
         .footer-banner {
             width: 100%;
-            padding: 20px 40px;
-            text-align: left;
-            background: black;
+            padding: 20px 40px; /* Reduced padding to move content upwards */
+            text-align: left; /* Align text and button to the left */
+            background: black; /* Black background */
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            justify-content: space-between; /* Space between left and right content */
+            align-items: center; /* Center align items vertically */
         }
 
         .footer-left {
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            align-items: flex-start; /* Align text and button to the left */
         }
 
         .footer-right {
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
-            gap: 15px;
-            margin-left: auto;
-            margin-right: auto;
+            align-items: flex-start; /* Align icons and text to the left */
+            gap: 15px; /* Space between icons and text */
+            margin-left: auto; /* Push the icons to the center */
+            margin-right: auto; /* Push the icons to the center */
         }
 
         .banner-message p {
-            font-size: 2.5em;
+            font-size: 2.5em; /* Restored original text size */
             font-weight: bold;
             margin-bottom: 20px;
-            color: white;
+            color: white; /* Changed text color to white */
         }
 
         .contact-button {
             padding: 15px 30px;
             font-size: 1.2em;
             font-weight: bold;
-            background-color: white;
-            color: black;
+            background-color: white; /* Changed background to white */
+            color: black; /* Changed text color to black */
             border: none;
             border-radius: 10px;
             cursor: pointer;
@@ -201,23 +201,23 @@
         }
 
         .contact-button:hover {
-            background-color: #f0f0f0;
+            background-color: #f0f0f0; /* Light grey on hover */
         }
 
         .footer-right i {
-            font-size: 2em;
-            color: white;
+            font-size: 2em; /* Increased icon size */
+            color: white; /* Icon color */
         }
 
         .footer-right span {
-            font-size: 1.5em;
-            color: white;
-            margin-left: 10px;
+            font-size: 1.5em; /* Increased text size */
+            color: white; /* Text color */
+            margin-left: 10px; /* Space between icon and text */
         }
 
         .footer-right div {
             display: flex;
-            align-items: center;
+            align-items: center; /* Center icons and text horizontally */
         }
 
         /* Contact Form Styles */
@@ -275,115 +275,10 @@
             color: #333;
         }
 
-        /* Responsive Styles */
+        /* Fix for "Oven Bakers Cloth" on mobile devices */
         @media (max-width: 768px) {
-            .banner {
-                font-size: 2.5em;
-                height: 400px;
-                padding-left: 20px;
-            }
-            nav {
-                padding: 5px 10px;
-            }
-            nav a {
-                font-size: 1em;
-                margin: 0 10px;
-            }
-            #about h2 {
-                font-size: 2em;
-            }
-            #about p {
-                font-size: 1.2em;
-            }
-            .why-choose h2 {
-                font-size: 1.8em;
-            }
-            .feature {
-                width: 100%;
-                max-width: 300px;
-            }
-            .bestsellers h2 {
-                font-size: 2em;
-            }
-            .bestseller-item {
-                flex-direction: column;
-                text-align: center;
-            }
-            .bestseller-item img {
-                width: 100%;
-                max-width: 300px;
-            }
-            .bestseller-text {
-                text-align: center;
-                max-width: 100%;
-            }
-            .footer-banner {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            .footer-left {
-                align-items: center;
-            }
-            .footer-right {
-                margin-top: 20px;
-                align-items: center;
-            }
-            .catalogue-link {
-                font-size: 1.5em;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .banner {
-                font-size: 2em;
-                height: 300px;
-                padding-left: 10px;
-            }
-            .logo-container img {
-                height: 40px;
-                width: 40px;
-            }
-            .logo-text {
-                font-size: 1em;
-            }
-            nav a {
-                font-size: 0.9em;
-                margin: 0 5px;
-            }
-            #about h2 {
-                font-size: 1.8em;
-            }
-            #about p {
-                font-size: 1em;
-            }
-            .why-choose h2 {
-                font-size: 1.5em;
-            }
-            .bestsellers h2 {
-                font-size: 1.8em;
-            }
-            .bestseller-text h3 {
-                font-size: 1.5em;
-            }
-            .bestseller-text p {
-                font-size: 1em;
-            }
-            .footer-banner p {
-                font-size: 1.5em;
-            }
-            .contact-button {
-                font-size: 1em;
-                padding: 10px 20px;
-            }
-            .footer-right i {
-                font-size: 1.5em;
-            }
-            .footer-right span {
-                font-size: 1.2em;
-            }
-            .catalogue-link {
-                font-size: 1.2em;
+            .bestseller-item[style*="flex-direction: row-reverse;"] {
+                flex-direction: column !important; /* Stack vertically on smaller screens */
             }
         }
     </style>
@@ -397,7 +292,7 @@
         </div>
         <div>
             <a href="#about">About</a>
-            <a href="#catalogue-section">Catalogue</a>
+            <a href="#catalogue-section">Catalogue</a> <!-- Updated "Shop" to "Catalogue" -->
             <a href="#footer">Contact</a>
         </div>
     </nav>
@@ -460,7 +355,7 @@
         </div>
 
         <!-- Catalogue Link -->
-        <div id="catalogue-section" class="catalogue-link">
+        <div id="catalogue-section" class="catalogue-link"> <!-- Added id="catalogue-section" -->
             <strong>Interested? Check out our <a href="NTC53CleaningProducts 1.pdf" target="_blank">catalogue</a>.</strong>
         </div>
     </section>
@@ -484,8 +379,8 @@
 
     <section id="footer" class="footer-banner">
         <div class="footer-left">
-            <p style="color: white; font-family: 'Gideon Roman', serif; font-size: 2em; font-weight: bold;">For any trade inquiries,<br>Feel free to</p>
-            <button class="contact-button" onclick="showContactForm()" style="margin-top: -10px; margin-left: 20px;">Contact Us</button>
+            <p style="color: white; font-family: 'Gideon Roman', serif; font-size: 2em; font-weight: bold;">For any trade inquiries,<br>Feel free to</p> <!-- Added bold font and line break -->
+            <button class="contact-button" onclick="showContactForm()" style="margin-top: -10px; margin-left: 20px;">Contact Us</button> <!-- Adjusted margin-top and margin-left -->
         </div>
         <div class="footer-right">
             <div>
