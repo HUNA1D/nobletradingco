@@ -1,0 +1,112 @@
+@media (max-width: 768px) {
+    .banner {
+        font-size: 2.5em;
+        height: 400px;
+        padding-left: 20px;
+    }
+    nav {
+        padding: 5px 10px;
+    }
+    nav a {
+        font-size: 1em;
+        margin: 0 10px;
+    }
+    #about h2 {
+        font-size: 2em;
+    }
+    #about p {
+        font-size: 1.2em;
+    }
+    .why-choose h2 {
+        font-size: 1.8em;
+    }
+    .feature {
+        width: 100%;
+        max-width: 300px;
+    }
+    .bestsellers h2 {
+        font-size: 2em;
+    }
+    .bestseller-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px; /* Adjust gap between image and text */
+    }
+    .bestseller-item img {
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 20px; /* Add space below the image */
+    }
+    .bestseller-text {
+        text-align: center;
+        max-width: 100%;
+    }
+    .footer-banner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .footer-left {
+        align-items: center;
+    }
+    .footer-right {
+        margin-top: 20px;
+        align-items: center;
+    }
+    .catalogue-link {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner {
+        font-size: 2em;
+        height: 300px;
+        padding-left: 10px;
+    }
+    .logo-container img {
+        height: 40px;
+        width: 40px;
+    }
+    .logo-text {
+        font-size: 1em;
+    }
+    nav a {
+        font-size: 0.9em;
+        margin: 0 5px;
+    }
+    #about h2 {
+        font-size: 1.8em;
+    }
+    #about p {
+        font-size: 1em;
+    }
+    .why-choose h2 {
+        font-size: 1.5em;
+    }
+    .bestsellers h2 {
+        font-size: 1.8em;
+    }
+    .bestseller-text h3 {
+        font-size: 1.5em;
+    }
+    .bestseller-text p {
+        font-size: 1em;
+    }
+    .footer-banner p {
+        font-size: 1.5em;
+    }
+    .contact-button {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+    .footer-right i {
+        font-size: 1.5em;
+    }
+    .footer-right span {
+        font-size: 1.2em;
+    }
+    .catalogue-link {
+        font-size: 1.2em;
+    }
+}
