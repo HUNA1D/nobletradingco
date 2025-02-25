@@ -7,26 +7,79 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Gideon+Roman&display=swap');
         
-        /* Added max-width to body to prevent horizontal scrolling */
         body {
             font-family: 'Gideon Roman', serif;
             background: white;
             color: black;
             margin: 0;
             padding: 0;
-            max-width: 100vw; /* Ensure the body doesn't exceed viewport width */
-            overflow-x: hidden; /* Hide horizontal overflow */
+            overflow-x: hidden; /* Prevent horizontal scrolling */
         }
-
-        /* Ensure all sections fit within the viewport */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 30px;
+            background: transparent;
+            z-index: 1000;
+            box-sizing: border-box; /* Ensure padding is included in width */
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+        }
+        .logo-container img {
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+        }
+        .logo-text {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: black;
+            margin-left: 10px;
+            opacity: 0;
+            transform: translateX(0);
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            position: absolute;
+            left: 60px;
+            white-space: nowrap;
+        }
+        .logo-container:hover .logo-text {
+            opacity: 1;
+            transform: translateX(50px);
+        }
+        nav a {
+            color: black;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
         section {
             padding: 100px 40px 40px;
             text-align: center;
-            width: 100%; /* Ensure sections take full width */
-            box-sizing: border-box; /* Include padding in width calculation */
+            box-sizing: border-box; /* Ensure padding is included in width */
         }
-
-        /* Adjust banner width */
+        #about {
+            padding: 30px 40px;
+        }
+        #about h2 {
+            font-size: 3em;
+            font-weight: bold;
+        }
+        #about p {
+            font-size: 1.5em;
+            line-height: 1.5;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
         .banner {
             width: 100%;
             height: 600px;
@@ -41,31 +94,72 @@
             font-size: 4em;
             font-weight: bold;
             line-height: 1.2;
-            box-sizing: border-box; /* Include padding in width calculation */
+            box-sizing: border-box; /* Ensure padding is included in width */
         }
-
-        /* Adjust features width */
+        .why-choose {
+            background: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        .why-choose h2 {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
         .features {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             gap: 20px;
-            width: 100%; /* Ensure features take full width */
-            box-sizing: border-box; /* Include padding in width calculation */
         }
-
-        /* Adjust bestseller items */
+        .feature {
+            background: white;
+            padding: 20px;
+            border: 2px solid black;
+            border-radius: 10px;
+            text-align: center;
+            width: 250px;
+            box-sizing: border-box; /* Ensure padding is included in width */
+        }
+        .feature i {
+            font-size: 2em;
+            color: black;
+            margin-bottom: 10px;
+        }
+        .bestsellers {
+            background: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        .bestsellers h2 {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
         .bestseller-item {
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 40px;
             gap: 20px;
-            width: 100%; /* Ensure bestseller items take full width */
-            box-sizing: border-box; /* Include padding in width calculation */
+        }
+        .bestseller-item img {
+            width: 320px;
+            height: auto;
+            border-radius: 10px;
+        }
+        .bestseller-text {
+            max-width: 400px;
+            text-align: left;
+            font-size: 1.3em;
+        }
+        .bestseller-text h3 {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 10px;
         }
 
-        /* Adjust footer width */
+        /* Footer Section */
         .footer-banner {
             width: 100%;
             padding: 20px 40px;
@@ -74,14 +168,123 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-sizing: border-box; /* Include padding in width calculation */
+            box-sizing: border-box; /* Ensure padding is included in width */
+        }
+
+        .footer-left {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .footer-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 15px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .banner-message p {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .contact-button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            background-color: white;
+            color: black;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: 'Gideon Roman', serif;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-button:hover {
+            background-color: #f0f0f0;
+        }
+
+        .footer-right i {
+            font-size: 2em;
+            color: white;
+        }
+
+        .footer-right span {
+            font-size: 1.5em;
+            color: white;
+            margin-left: 10px;
+        }
+
+        .footer-right div {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Contact Form Styles */
+        #contact-form {
+            display: none;
+            padding: 40px;
+            background-color: #f4f4f4;
+            max-width: 600px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-sizing: border-box; /* Ensure padding is included in width */
+        }
+        #contact-form h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        #contact-form label {
+            font-size: 1.2em;
+            display: block;
+            margin-bottom: 10px;
+        }
+        #contact-form input,
+        #contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            font-size: 1em;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box; /* Ensure padding is included in width */
+        }
+        #contact-form button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        #contact-form button:hover {
+            background-color: #333;
+        }
+
+        /* Catalogue Link */
+        .catalogue-link {
+            font-size: 2em;
+            font-weight: bold;
+            color: black;
+            margin-top: 20px;
+        }
+        .catalogue-link a {
+            color: black;
+            text-decoration: underline;
+        }
+        .catalogue-link a:hover {
+            color: #333;
         }
 
         /* Responsive Styles */
         @media (max-width: 768px) {
-            body {
-                font-size: 14px; /* Decrease base font size for smaller screens */
-            }
             .banner {
                 font-size: 2.5em;
                 height: 400px;
@@ -111,8 +314,7 @@
                 font-size: 2em;
             }
             .bestseller-item {
-                flex-direction: column !important;
-                align-items: center;
+                flex-direction: column;
                 text-align: center;
                 gap: 10px;
             }
@@ -143,9 +345,6 @@
         }
 
         @media (max-width: 480px) {
-            body {
-                font-size: 12px; /* Further decrease base font size for very small screens */
-            }
             .banner {
                 font-size: 2em;
                 height: 300px;
