@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+                                                             <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -100,6 +100,7 @@
             font-size: 4em;
             font-weight: bold;
             line-height: 1.2;
+            position: relative; /* Added for absolute positioning of the eBay rating */
         }
         .why-choose {
             background: white;
@@ -284,6 +285,65 @@
             color: #333;
         }
 
+        
+        /* Slideshow Styles */
+.slideshow-container {
+    position: absolute;
+    top: 260px; /* Adjust as needed */
+    left: 62%;
+    transform: translateX(-50%);
+    width: 90%; /* Adjusted for better responsiveness */
+    max-width: 800px;
+    text-align: center;
+    z-index: 100;
+}
+
+.slides {
+    position: relative;
+    height: 150px; /* Adjust as needed */
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    font-size: 0.35em; /* Adjusted for better readability */
+    color: white;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    border-radius: 10px; /* Adjusted for better appearance */
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+/* Responsive Styles for Slideshow */
+@media (max-width: 768px) {
+    .slideshow-container {
+        top: 200px; /* Adjust as needed */
+        width: 95%; /* Adjusted for better responsiveness */
+    }
+
+    .slide {
+        font-size: 0.25em; /* Adjusted for better readability on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .slideshow-container {
+        top: 150px; /* Adjust as needed */
+        width: 100%; /* Adjusted for better responsiveness */
+    }
+
+    .slide {
+        font-size: 0.25em; /* Adjusted for better readability on smaller screens */
+    }
+}
+
         /* Responsive Styles */
         @media (max-width: 768px) {
             .banner {
@@ -413,10 +473,38 @@
             <a href="#footer">Contact</a>
         </div>
     </nav>
-    <div class="banner">
-        Effortless Clean,<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Every Time
+   <div class="banner">
+    <!-- Slideshow Container -->
+    <div class="slideshow-container">
+        <div class="slides">
+            <div class="slide active">“Excellent eBay Trader, Trustworthy and True, Excellent Delivery times, Top Trader for 2024..... Perfect 10/10”</div>
+            <div class="slide">“Used by my cleaner and reported that very good on glass and shiny surfaces like TV screen and glass TV stand and leaves no lint. Very positive experience of use.”</div>
+            <div class="slide">“These are finer than normal micro fibre cloths and are brilliant for cleaning glass, mirrors, drying off cars, so many things to mention and these XXL are huge.”</div>
+            <div class="slide">“Very quick delivery item as described. Looks an excellent product well made and a great size - much easier to use than the larger size (approx 50 x 76cm) of similar products which are for professional use.”</div>
+            <div class="slide">“Perfect for my cleaning job, streak-free mirrors”</div>
+            <div class="slide">“Having been repeatedly let down by another provider of the same product I was pleased when Noble Trading came up trumps. Fast delivery, good price and product. Thank you!”</div>
+        </div>
     </div>
+    Effortless Clean,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Every Time
+    <!-- Add the eBay icon, stars, and text here -->
+    <div class="ebay-rating" style="position: absolute; top: 80%; left: 63%; transform: translate(-50%, -50%); display: flex; flex-direction: column; align-items: center; gap: 5px; background: rgba(255, 255, 255, 0.8); padding: 10px; border-radius: 10px;">
+        <!-- eBay Icon -->
+        <i class="fab fa-ebay" style="font-size: 70px; color: black;"></i>
+        <!-- 5 Star Icons -->
+        <div style="display: flex; gap: 5px;">
+            <i class="fas fa-star" style="font-size: 24px; color: black;"></i>
+            <i class="fas fa-star" style="font-size: 24px; color: black;"></i>
+            <i class="fas fa-star" style="font-size: 24px; color: black;"></i>
+            <i class="fas fa-star" style="font-size: 24px; color: black;"></i>
+            <i class="fas fa-star" style="font-size: 24px; color: black;"></i>
+        </div>
+        <!-- Text -->
+        <div style="font-size: 14px; color: black; font-family: 'Gideon Roman', serif;">
+            - Top Rated Seller
+        </div>
+    </div>
+</div>
     <section id="about">
         <h2>About Us</h2>
         <p>Founded in 2020, Noble Trading Co. was born out of a desire to tackle the struggles caused by unhygienic practices in industrial and home settings. We offer a wide range of high-quality cleaning cloths, from microfiber glass cloths to kitchen cloths designed for baking safety. Our mission is simple: provide customers with reliable, top-notch products while raising awareness about the importance of hygiene and safety. At Noble Trading Co., we’re dedicated to helping you maintain a cleaner, safer environment.</p>
@@ -494,6 +582,7 @@
         </form>
     </section>
 
+
     <section id="footer" class="footer-banner">
         <div class="footer-left">
             <p style="color: white; font-family: 'Gideon Roman', serif; font-size: 2em; font-weight: bold;">For any trade inquiries,<br>Feel free to</p>
@@ -520,6 +609,32 @@
             var contactForm = document.getElementById("contact-form");
             contactForm.style.display = (contactForm.style.display === "none" || contactForm.style.display === "") ? "block" : "none";
         }
+    </script>
+   <script>
+        // Slideshow functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(index) {
+            // Hide all slides
+            slides.forEach((slide) => {
+                slide.classList.remove('active');
+            });
+
+            // Show the current slide
+            slides[index].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length; // Loop back to the first slide
+            showSlide(currentSlide);
+        }
+
+        // Automatically switch slides every 3 seconds
+        setInterval(nextSlide, 3000);
+
+        // Initialize the first slide
+        showSlide(currentSlide);
     </script>
 </body>
 </html>
