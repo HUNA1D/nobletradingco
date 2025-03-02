@@ -1,4 +1,4 @@
-                                                             <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -30,7 +30,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 5px 30px;
+            padding: 5px 20px; /* Adjusted padding to shift links left */
             background: transparent;
             z-index: 1000;
         }
@@ -63,7 +63,7 @@
         }
         nav a {
             color: black;
-            margin: 0 15px;
+            margin: 0 10px; /* Adjusted margin to shift links left */
             text-decoration: none;
             font-size: 1.2em;
             font-weight: bold;
@@ -289,8 +289,8 @@
         /* Slideshow Styles */
 .slideshow-container {
     position: absolute;
-    top: 260px; /* Adjust as needed */
-    left: 62%;
+    top: 260px; /* Restored original positioning */
+    left: 62%; /* Restored original positioning */
     transform: translateX(-50%);
     width: 90%; /* Adjusted for better responsiveness */
     max-width: 800px;
@@ -324,23 +324,25 @@
 /* Responsive Styles for Slideshow */
 @media (max-width: 768px) {
     .slideshow-container {
-        top: 200px; /* Adjust as needed */
-        width: 95%; /* Adjusted for better responsiveness */
+        top: 260px; /* Maintain same position on mobile */
+        left: 62%; /* Maintain same position on mobile */
+        width: 90%; /* Adjusted for better responsiveness */
     }
 
     .slide {
-        font-size: 0.25em; /* Adjusted for better readability on smaller screens */
+        font-size: 0.35em; /* Maintain same size on mobile */
     }
 }
 
 @media (max-width: 480px) {
     .slideshow-container {
-        top: 150px; /* Adjust as needed */
-        width: 100%; /* Adjusted for better responsiveness */
+        top: 260px; /* Maintain same position on mobile */
+        left: 62%; /* Maintain same position on mobile */
+        width: 90%; /* Adjusted for better responsiveness */
     }
 
     .slide {
-        font-size: 0.25em; /* Adjusted for better readability on smaller screens */
+        font-size: 0.35em; /* Maintain same size on mobile */
     }
 }
 
@@ -638,3 +640,4 @@
     </script>
 </body>
 </html>
+
